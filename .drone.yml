@@ -1,17 +1,19 @@
 publish:
   docker:
-    environment:
-      - DOCKER_LAUNCH_DEBUG=true
     registry: registry.chmuul.net
     insecure: true
     username: $$REGISTRY_USERNAME
     password: $$REGISTRY_PASSWORD
     email: $$REGISTRY_EMAIL
-    file: Dockerfile.ubuntu-16.04
+    file: Dockerfile.$$OS
     repo: ansible-controller
     tag:
-      - ubuntu-16.04
-      - ubuntu
+      - $$OS
+
+matrix:
+  OS:
+  - ubuntu-16.04
+  - fedora-24
 
 branches:
   - master
