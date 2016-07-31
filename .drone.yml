@@ -2,7 +2,7 @@ publish:
   docker:
     environment:
       - DOCKER_LAUNCH_DEBUG=true
-    registry: registry.chmuul.net
+    registry: registry.chmuul.net/v2/
     insecure: true
     username: $$REGISTRY_USERNAME
     password: $$REGISTRY_PASSWORD
