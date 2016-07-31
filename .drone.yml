@@ -1,6 +1,6 @@
 publish:
   docker:
-    registry: https://registry.chmuul.net/v2/
+    registry: https://registry.chmuul.net/
     insecure: true
     username: $$REGISTRY_USERNAME
     password: $$REGISTRY_PASSWORD
