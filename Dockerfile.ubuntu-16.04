@@ -8,4 +8,6 @@ RUN apt-get update \
       ansible \
     && apt-get autoclean
 
+WORKDIR /site
 
+CMD ["ansible-playbook", "--help"]
