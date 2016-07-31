@@ -2,6 +2,7 @@ publish:
   docker:
     username: chmuul.net
     password: $$REGISTRY_PASSWORD
+    email: aal@chmuul.net
     file: Dockerfile.ubuntu-16.04
     repo: registry.chmuul.net/ansible-controller
     tag:
