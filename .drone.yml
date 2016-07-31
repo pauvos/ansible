@@ -4,7 +4,7 @@ publish:
     insecure: true
     username: $$REGISTRY_USERNAME
     password: $$REGISTRY_PASSWORD
-    email:
+    email: ""
     file: Dockerfile.ubuntu-16.04
     repo: ansible-controller
     tag:
