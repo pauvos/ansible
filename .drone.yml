@@ -2,6 +2,7 @@ publish:
   docker:
     registry: registry.chmuul.net
     insecure: true
+    username: $$REGISTRY_USERNAME
     auth: $$REGISTRY_AUTH
     file: Dockerfile.ubuntu-16.04
     repo: ansible-controller
