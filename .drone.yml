@@ -1,0 +1,12 @@
+publish:
+  docker:
+    username: chmuul.net
+    password: $$REGISTRY_PASSWORD
+    file: Dockerfile.ubuntu-16.04
+    repo: registry.chmuul.net/ansible-controller
+    tag:
+      - ubuntu-16.04
+      - ubuntu
+
+branches:
+  - master
