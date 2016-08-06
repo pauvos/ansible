@@ -1,13 +1,15 @@
 FROM debian:8
 
 RUN apt-get update \
-    && apt-get install -y  --no-install-recommends \
-      software-properties-common \
-    && apt-add-repository ppa:ansible/ansible \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends \
-      ansible \
-    && apt-get autoclean
+    && apt-get install -yq --no-install-recommends \
+      build-essential \
+      libffi-dev \
+      libssl-dev \
+      python \
+      python-dev \
+      python-pip \
+    && apt-get autoclean \
+    && pip install --upgrade ansible
 
 WORKDIR /site
 
