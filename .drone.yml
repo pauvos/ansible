@@ -5,7 +5,7 @@ publish:
     password: $$REGISTRY_PASSWORD
     email: $$REGISTRY_EMAIL
     file: Dockerfile.$$OS
-    repo: ansible-controller
+    repo: ansible
     tag:
       - $$OS
 
