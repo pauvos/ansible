@@ -2,7 +2,7 @@
 
 A docker image for running ansible playbooks
 
-Available in two flavours:
+Available in four flavours:
 
 * registry.chmuul.net/ansible:ubuntu-16.04
 * registry.chmuul.net/ansible:debian-8
