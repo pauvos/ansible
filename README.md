@@ -18,6 +18,8 @@ Available in two flavours:
         registry.chmuul.net/ansible-controller:ubuntu-16.04 \
         ansible-playbook site.yml
 
+Note: /root/.ansible must not be an overlayfs, otherwise ssh multiplexing won't work.
+
 ## todo
 
-publish ansible images to docker hub
+Publish ansible images to docker hub
