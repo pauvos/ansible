@@ -1,13 +1,13 @@
 # ansible  [![Build Status](https://drone.chmuul.net/api/badges/aal/ansible/status.svg)](https://drone.chmuul.net/aal/ansible)
 
-A docker image for running ansible playbooks
+A docker image for running and testing ansible playbooks
 
-Available in four flavours:
+Available with four image tags:
 
-* registry.chmuul.net/ansible:ubuntu-16.04
-* registry.chmuul.net/ansible:debian-8
-* registry.chmuul.net/ansible:fedora-24
-* registry.chmuul.net/ansible:alpine-3
+* ubuntu-16.04
+* debian-8
+* fedora-24
+* alpine-3
 
 ## run ansible-controller
 
@@ -15,10 +15,10 @@ Available in four flavours:
         -v /path/to/site/:/site \
         -v /path/to/ansible-user-ssh/:/root/.ssh:ro \
         --tmpfs /root/.ansible \
-        registry.chmuul.net/ansible-controller:ubuntu-16.04 \
+        registry.chmuul.net/ansible:alpine-3 \
         ansible-playbook site.yml
 
-Note: /root/.ansible must not be an overlayfs, otherwise ssh multiplexing won't work.
+Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't work.
 
 ## todo
 
