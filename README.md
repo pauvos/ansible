@@ -1,6 +1,6 @@
 # ansible  [![Build Status](https://drone.chmuul.net/api/badges/aal/ansible/status.svg)](https://drone.chmuul.net/aal/ansible)
 
-A docker image for running and testing ansible playbooks
+Simple docker images for running and testing ansible playbooks. I don't like obfuscated docker images with external scripts and hundreds of bells and whistles. So I created these as base images for drone builds.
 
 Available with four image tags:
 
@@ -9,7 +9,7 @@ Available with four image tags:
 * fedora-24
 * alpine-3
 
-## run ansible-controller
+## run ansible
 
     docker run -it --rm \
         -v /path/to/site/:/site \
