@@ -4,9 +4,9 @@ publish:
     password: $$REGISTRY_PASSWORD
     email: $$REGISTRY_EMAIL
     file: Dockerfile.$$OS
-    load: build/ansible-$$OS.tar
+    load: cache/image-$$OS.tar
     save:
-      destination: build/ansible-$$OS.tar
+      destination: cache/image-$$OS.tar
       tag: $$OS
     repo: chmuul/ansible
     tag:
@@ -18,6 +18,11 @@ matrix:
   - debian-8
   - ubuntu-16.04
   - fedora-24
+
+cache:
+  mount:
+    - cache
+    - .git
 
 branches:
   - master
