@@ -10,7 +10,7 @@ Available with four image tags:
 * fedora-24
 * alpine-3
 
-## run ansible
+## run ansible as controller
 
     docker run -it --rm \
         -w /site \
@@ -21,6 +21,22 @@ Available with four image tags:
         ansible-playbook site.yml
 
 Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't work.
+
+## use ansible in drone builds
+
+    build:
+      image: chmuul/ansible:$$OS
+      pull: true
+      commands:
+        - ansible-playbook -i tests/inventory tests/main.yml --syntax-check
+        - ansible-playbook -i tests/inventory tests/main.yml
+
+    matrix:
+      OS:
+        - ubuntu-16.04
+        - fedora-24
+        - debian-8
+
 
 ## references
 
