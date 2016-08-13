@@ -4,9 +4,9 @@ publish:
     password: $$REGISTRY_PASSWORD
     email: $$REGISTRY_EMAIL
     file: Dockerfile.$$OS
-    load: cache/image-$$OS.tar
+    load: image.tar
     save:
-      destination: cache/image-$$OS.tar
+      destination: image.tar
       tag: $$OS
     repo: chmuul/ansible
     tag:
@@ -21,8 +21,8 @@ matrix:
 
 cache:
   mount:
-    - /drone/cache
-    - /drone/.git
+    - image.tar
+    - .git
 
 branches:
   - master
