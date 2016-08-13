@@ -1,4 +1,4 @@
-# ansible  [![Build Status](https://drone.chmuul.net/api/badges/chmuul.net/ansible/status.svg)](https://drone.chmuul.net/chmuul.net/ansible)
+# ansible  
 
 Docker images for running and testing ansible playbooks against various operating systems.
 I don't like obfuscated docker images with external scripts and hundreds of bells and whistles.
