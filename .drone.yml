@@ -21,8 +21,8 @@ matrix:
 
 cache:
   mount:
-    - cache
-    - .git
+    - /drone/cache
+    - /drone/.git
 
 branches:
   - master
