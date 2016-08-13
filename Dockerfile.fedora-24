@@ -5,6 +5,4 @@ RUN dnf -y install \
     openssh-clients \
   && dnf clean all
 
-WORKDIR /site
-
 CMD ["ansible-playbook", "--help"]

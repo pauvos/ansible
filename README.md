@@ -12,6 +12,7 @@ Available with four image tags:
 ## run ansible
 
     docker run -it --rm \
+        -w /site \
         -v /path/to/site/:/site \
         -v /path/to/ansible-user-ssh/:/root/.ssh:ro \
         --tmpfs /root/.ansible \

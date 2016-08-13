@@ -2,6 +2,4 @@ FROM alpine:3.4
 
 RUN apk add --no-cache ansible
 
-WORKDIR /site
-
 CMD ["ansible-playbook", "--help"]
