@@ -8,7 +8,7 @@ publish:
     save:
       destination: build/ansible-$$OS.tar
       tag: $$OS
-    repo: ansible
+    repo: chmuul/ansible
     tag:
       - $$OS
 
