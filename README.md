@@ -8,8 +8,10 @@ Available operating systems:
 
 * alpine-3
 * centos-7
+* debian-7
 * debian-8
 * fedora-24
+* ubuntu-14.04
 * ubuntu-16.04
 
 ## run playbooks
