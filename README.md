@@ -12,7 +12,7 @@ Available operating systems:
 * fedora-24
 * ubuntu-16.04
 
-## use the ansible image for playbooks
+## run playbooks
 
     docker run -it --rm \
         -w /site \
@@ -24,7 +24,7 @@ Available operating systems:
 
 Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't work.
 
-## use the ansible image in drone builds
+## run tests with drone.io
 
     build:
       image: chmuul/ansible:$$OS
@@ -38,6 +38,26 @@ Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't wo
         - debian-8
         - fedora-24
         - ubuntu-16.04
+
+## run tests with travis-ci
+
+    sudo: required
+
+    env:
+    - OS: centos-7
+    - OS: debian-8
+    - OS: fedora-24
+    - OS: ubuntu-16.04
+
+    services:
+    - docker
+
+    before_install:
+    - docker pull chmuul/ansible:${OS}
+
+    script:
+    - docker run -t -w /site -v $(pwd):/site chmuul/ansible:${OS} ansible-playbook -i tests/inventory tests/main.yml --syntax-check
+    - docker run -t -w /site -v $(pwd):/site chmuul/ansible:${OS} ansible-playbook -i tests/inventory tests/main.yml
 
 ## references
 
