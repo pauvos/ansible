@@ -3,12 +3,13 @@
 Docker images for running and testing ansible playbooks against various operating systems.
 I don't like obfuscated docker images with external scripts and hundreds of bells and whistles.
 
-Available with four image tags:
+Available operating systems:
 
-* ubuntu-16.04
+* alpine-3
+* centos-7
 * debian-8
 * fedora-24
-* alpine-3
+* ubuntu-16.04
 
 ## run ansible as controller
 
