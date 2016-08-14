@@ -8,7 +8,7 @@ RUN apt-get -q update \
       python \
       python-dev \
       python-pip \
-    && apt-get autoclean \
+    && apt-get clean \
     && pip install --quiet --upgrade \
       ansible
 

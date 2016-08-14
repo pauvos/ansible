@@ -1,7 +1,8 @@
 # ansible  
 
-Docker images for running and testing ansible playbooks against various operating systems.
-I don't like obfuscated docker images with external scripts and hundreds of bells and whistles.
+Docker images for running and testing ansible playbooks with various operating systems.
+
+I don't like obfuscated Dockerfiles with external scripts and hundreds of bells and whistles, so I created these simple ones.
 
 Available operating systems:
 
@@ -11,7 +12,7 @@ Available operating systems:
 * fedora-24
 * ubuntu-16.04
 
-## run ansible as controller
+## use the ansible image for playbooks
 
     docker run -it --rm \
         -w /site \
@@ -23,21 +24,20 @@ Available operating systems:
 
 Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't work.
 
-## use ansible in drone builds
+## use the ansible image in drone builds
 
     build:
       image: chmuul/ansible:$$OS
-      pull: true
       commands:
         - ansible-playbook -i tests/inventory tests/main.yml --syntax-check
         - ansible-playbook -i tests/inventory tests/main.yml
 
     matrix:
       OS:
-        - ubuntu-16.04
-        - fedora-24
+        - centos-7
         - debian-8
-
+        - fedora-24
+        - ubuntu-16.04
 
 ## references
 
