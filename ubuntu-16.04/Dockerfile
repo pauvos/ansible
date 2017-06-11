@@ -9,6 +9,7 @@ RUN apt-get update \
       ansible \
       python-apt \
       git-core \
+      openssh-client \
     && apt-get clean
 
 CMD ["ansible-playbook", "--help"]
