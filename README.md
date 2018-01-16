@@ -11,6 +11,7 @@ Available operating systems:
 * debian-8
 * fedora-24
 * ubuntu-16.04
+* arch
 
 ## run playbooks
 
@@ -39,6 +40,7 @@ Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't wo
         - debian-8
         - fedora-24
         - ubuntu-16.04
+        - arch
 
 ## run tests with travis-ci
 
@@ -49,6 +51,7 @@ Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't wo
     - OS: debian-8
     - OS: fedora-24
     - OS: ubuntu-16.04
+    - OS: arch
 
     services:
     - docker
