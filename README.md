@@ -27,7 +27,7 @@ Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't wo
 ## run tests with drone.io
 
     build:
-      image: chmuul/ansible:$$OS
+      image: chmuul/ansible:${OS}
       commands:
         - ansible-playbook -i tests/inventory tests/main.yml --syntax-check
         - ansible-playbook -i tests/inventory tests/main.yml
