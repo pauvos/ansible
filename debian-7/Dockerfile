@@ -1,15 +1,10 @@
 FROM debian:7
 
 RUN apt-get -q update \
-    && apt-get -yq install --no-install-recommends \
-      build-essential \
-      libffi-dev \
-      libssl-dev \
-      python \
-      python-dev \
-      python-pip \
-    && apt-get clean \
-    && pip install --quiet --upgrade setuptools \
-    && pip install --quiet --upgrade ansible
+    && apt-get install -y python-pip python-dev git
+
+RUN pip install --index-url=https://pypi.python.org/simple/ --upgrade pip
+
+RUN pip install git+https://github.com/ansible/ansible.git@devel
 
 CMD ["ansible-playbook", "--help"]

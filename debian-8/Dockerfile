@@ -8,8 +8,10 @@ RUN apt-get -q update \
       python \
       python-dev \
       python-pip \
+      git \
     && apt-get clean \
-    && pip install --quiet --upgrade \
-      ansible
+    && pip install --upgrade pip
+
+RUN pip install git+https://github.com/ansible/ansible.git@devel
 
 CMD ["ansible-playbook", "--help"]
