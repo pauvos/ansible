@@ -9,6 +9,7 @@ RUN apt-get -q update \
       python-dev \
       python-pip \
       git \
+      apt-utils \
     && apt-get clean \
     && pip install --upgrade pip
 
