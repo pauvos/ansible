@@ -1,7 +1,7 @@
 # ansible  
 
 Docker images for running and testing ansible playbooks with various operating systems.
-
+This Project is based on this [project](https://github.com/pauvos/ansible), which seems abandoned
 I don't like obfuscated Dockerfiles with external scripts and hundreds of bells and whistles, so I created these simple ones.
 
 Available operating systems:
@@ -20,7 +20,7 @@ Available operating systems:
         -v /path/to/site/:/site \
         -v /path/to/ansible-user-ssh/:/root/.ssh:ro \
         --tmpfs /root/.ansible \
-        chmuul/ansible:alpine-3 \
+        lerentis/ansible:alpine-3 \
         ansible-playbook site.yml
 
 Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't work.
@@ -29,7 +29,7 @@ Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't wo
 
     pipeline:
       build:
-        image: chmuul/ansible:${OS}
+        image: lerentis/ansible:${OS}
         commands:
           - ansible-playbook -i tests/inventory tests/main.yml --syntax-check
           - ansible-playbook -i tests/inventory tests/main.yml
@@ -57,13 +57,12 @@ Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't wo
     - docker
 
     before_install:
-    - docker pull chmuul/ansible:${OS}
+    - docker pull lerentis/ansible:${OS}
 
     script:
-    - docker run -t -w /site -v $(pwd):/site chmuul/ansible:${OS} ansible-playbook -i tests/inventory tests/main.yml --syntax-check
-    - docker run -t -w /site -v $(pwd):/site chmuul/ansible:${OS} ansible-playbook -i tests/inventory tests/main.yml
+    - docker run -t -w /site -v $(pwd):/site lerentis/ansible:${OS} ansible-playbook -i tests/inventory tests/main.yml --syntax-check
+    - docker run -t -w /site -v $(pwd):/site lerentis/ansible:${OS} ansible-playbook -i tests/inventory tests/main.yml
 
 ## references
 
-* [project on github](https://github.com/pauvos/ansible)
-* [project on hub.docker.com](https://hub.docker.com/r/chmuul/ansible)
+* [project](https://git.burntbunch.org/lerentis/ansible-container)
