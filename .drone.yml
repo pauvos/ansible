@@ -159,10 +159,10 @@ pipeline:
     when:
       event: [ tag ]
 
-telegram:
-    image: appleboy/drone-telegram
-    token: 335668211:AAF-YgId7iI6ANBuZVy4uVOYYqA4R4uAaqY
-    to: 14852963
-    message: Commit {{ commit.link }} ran with build {{ build.number }} and finished with status {{ build.status }}.
-    when:
-      status:  [ failure, success ]
+  telegram:
+      image: appleboy/drone-telegram
+      token: 335668211:AAF-YgId7iI6ANBuZVy4uVOYYqA4R4uAaqY
+      to: 14852963
+      message: Commit {{ commit.link }} ran with build {{ build.number }} and finished with status {{ build.status }}.
+      when:
+        status:  [ failure, success ]
