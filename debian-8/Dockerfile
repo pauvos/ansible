@@ -5,11 +5,11 @@ RUN apt-get -q update \
       build-essential \
       libffi-dev \
       libssl-dev \
-      python \
       python-dev \
       python-pip \
+    && apt-get autoremove \
     && apt-get clean \
-    && pip install --quiet --upgrade \
-      ansible
+    && pip install --quiet --upgrade setuptools \
+    && pip install --quiet ansible
 
 CMD ["ansible-playbook", "--help"]

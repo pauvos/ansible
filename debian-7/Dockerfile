@@ -1,15 +1,14 @@
 FROM debian:7
 
 RUN apt-get -q update \
-    && apt-get -yq install --no-install-recommends \
-      build-essential \
+    && apt-get -yq install \
       libffi-dev \
       libssl-dev \
-      python \
       python-dev \
       python-pip \
+    && apt-get autoremove \
     && apt-get clean \
     && pip install --quiet --upgrade setuptools \
-    && pip install --quiet --upgrade ansible
+    && pip install --quiet ansible
 
 CMD ["ansible-playbook", "--help"]
