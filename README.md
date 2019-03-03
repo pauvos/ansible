@@ -68,3 +68,5 @@ Note: /root/.ansible must not be an overlayfs, otherwise ssh accelerate won't wo
 ## references
 
 * [project](https://git.burntbunch.org/lerentis/ansible-container)
+
+Current Version: 0.7.2
