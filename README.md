@@ -1,5 +1,7 @@
 # ansible  
 
+[![Build Status](https://drone.burntbunch.org/api/badges/lerentis/ansible-container/status.svg)](https://drone.burntbunch.org/lerentis/ansible-container)
+
 Docker images for running and testing ansible playbooks with various operating systems.
 This Project is based on this [project](https://github.com/pauvos/ansible), which seems abandoned
 I don't like obfuscated Dockerfiles with external scripts and hundreds of bells and whistles, so I created these simple ones.
