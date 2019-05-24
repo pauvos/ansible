@@ -1,9 +1,18 @@
-pipeline:
+---
 
-  concurrency:
-    limit: 9
+kind: pipeline
+name: default
 
-  build-ubuntu-18:
+platform:
+  os: linux
+  arch: amd64
+
+concurrency:
+  limit: 9
+
+steps:
+  
+  - name: build-ubuntu-18
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -13,7 +22,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-ubuntu-16:
+  - name: build-ubuntu-16
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -23,7 +32,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-ubuntu-14:
+  - name: build-ubuntu-14
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -33,7 +42,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-fedora-24:
+  - name: build-fedora-24
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -43,7 +52,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-alpine-3:
+  - name: build-alpine-3
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -53,7 +62,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-debian-8:
+  - anem: build-debian-8
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -63,7 +72,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-debian-7:
+  - name: build-debian-7
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -73,7 +82,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-centos-7:
+  - name: build-centos-7
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -83,7 +92,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-arch:
+  - name: build-arch
     group: build
     image: plugins/docker
     repo: lerentis/ansible
@@ -93,7 +102,7 @@ pipeline:
     when:
       event: [ push, pull_request ]
 
-  build-ubuntu-18-publish:
+  - name: build-ubuntu-18-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -106,7 +115,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-ubuntu-16-publish:
+  - name: build-ubuntu-16-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -119,7 +128,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-ubuntu-14-publish:
+  - name: build-ubuntu-14-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -132,7 +141,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-fedora-24-publish:
+  - name: build-fedora-24-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -145,7 +154,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-alpine-3-publish:
+  - name: build-alpine-3-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -158,7 +167,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-debian-8-publish:
+  - name: build-debian-8-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -171,7 +180,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-debian-7-publish:
+  - name: build-debian-7-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -184,7 +193,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-centos-7-publish:
+  - name: build-centos-7-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -197,7 +206,7 @@ pipeline:
     when:
       event: [ tag ]
 
-  build-arch-publish:
+  - name: build-arch-publish
     group: release
     image: plugins/docker
     repo: lerentis/ansible
@@ -210,10 +219,10 @@ pipeline:
     when:
       event: [ tag ]
 
-  telegram:
-      image: appleboy/drone-telegram
-      token: 335668211:AAF-YgId7iI6ANBuZVy4uVOYYqA4R4uAaqY
-      to: 14852963
-      message: Commit {{ commit.link }} ran with build {{ build.number }} and finished with status {{ build.status }}.
-      when:
-        status:  [ failure, success ]
+  - name: notify
+    image: appleboy/drone-telegram
+    token: 335668211:AAF-YgId7iI6ANBuZVy4uVOYYqA4R4uAaqY
+    to: 14852963
+    message: Commit {{ commit.link }} ran with build {{ build.number }} and finished with status {{ build.status }}.
+    when:
+      status:  [ failure, success ]
