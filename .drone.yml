@@ -15,214 +15,233 @@ steps:
   - name: build-ubuntu-18
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: ubuntu-18.04
-    dockerfile: ubuntu-18.04/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: ubuntu-18.04
+      dockerfile: ubuntu-18.04/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-ubuntu-16
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: ubuntu-16.04
-    dockerfile: ubuntu-16.04/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: ubuntu-16.04
+      dockerfile: ubuntu-16.04/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-ubuntu-14
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: ubuntu-14.04
-    dockerfile: ubuntu-14.04/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: ubuntu-14.04
+      dockerfile: ubuntu-14.04/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-fedora-24
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: fedora-24
-    dockerfile: fedora-24/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: fedora-24
+      dockerfile: fedora-24/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-alpine-3
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: alpine-3
-    dockerfile: alpine-3/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: alpine-3
+      dockerfile: alpine-3/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - anem: build-debian-8
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: debian-8
-    dockerfile: debian-8/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: debian-8
+      dockerfile: debian-8/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-debian-7
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: debian-7
-    dockerfile: debian-8/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: debian-7
+      dockerfile: debian-8/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-centos-7
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: centos-7
-    dockerfile: centos-7/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: centos-7
+      dockerfile: centos-7/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-arch
     group: build
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: arch
-    dockerfile: arch/Dockerfile
-    dry_run: true
+    settings:
+      repo: lerentis/ansible
+      tag: arch
+      dockerfile: arch/Dockerfile
+      dry_run: true
     when:
       event: [ push, pull_request ]
 
   - name: build-ubuntu-18-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: ubuntu-18.04
-    dockerfile: ubuntu-18.04/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: ubuntu-18.04
+      dockerfile: ubuntu-18.04/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-ubuntu-16-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: ubuntu-16.04
-    dockerfile: ubuntu-16.04/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: ubuntu-16.04
+      dockerfile: ubuntu-16.04/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-ubuntu-14-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: ubuntu-14.04
-    dockerfile: ubuntu-14.04/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: ubuntu-14.04
+      dockerfile: ubuntu-14.04/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-fedora-24-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: fedora-24
-    dockerfile: fedora-24/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: fedora-24
+      dockerfile: fedora-24/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-alpine-3-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: alpine-3
-    dockerfile: alpine-3/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: alpine-3
+      dockerfile: alpine-3/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-debian-8-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: debian-8
-    dockerfile: debian-8/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: debian-8
+      dockerfile: debian-8/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-debian-7-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: debian-7
-    dockerfile: debian-8/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: debian-7
+      dockerfile: debian-8/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-centos-7-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: centos-7
-    dockerfile: centos-7/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: centos-7
+      dockerfile: centos-7/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: build-arch-publish
     group: release
     image: plugins/docker
-    repo: lerentis/ansible
-    tag: arch
-    dockerfile: arch/Dockerfile
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      repo: lerentis/ansible
+      tag: arch
+      dockerfile: arch/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
     when:
       event: [ tag ]
 
   - name: notify
     image: appleboy/drone-telegram
-    token: 335668211:AAF-YgId7iI6ANBuZVy4uVOYYqA4R4uAaqY
-    to: 14852963
-    message: Commit {{ commit.link }} ran with build {{ build.number }} and finished with status {{ build.status }}.
+    settings:
+      token: 335668211:AAF-YgId7iI6ANBuZVy4uVOYYqA4R4uAaqY
+      to: 14852963
+      message: Commit {{ commit.link }} ran with build {{ build.number }} and finished with status {{ build.status }}.
     when:
       status:  [ failure, success ]
