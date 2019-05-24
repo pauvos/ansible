@@ -1,4 +1,15 @@
 pipeline:
+
+  build-ubuntu-18:
+    group: build
+    image: plugins/docker
+    repo: lerentis/ansible
+    tag: ubuntu-18.04
+    dockerfile: ubuntu-18.04/Dockerfile
+    dry_run: true
+    when:
+      event: [ push, pull_request ]
+
   build-ubuntu-16:
     group: build
     image: plugins/docker
@@ -78,6 +89,16 @@ pipeline:
     dry_run: true
     when:
       event: [ push, pull_request ]
+
+  build-ubuntu-18-publish:
+    group: build
+    image: plugins/docker
+    repo: lerentis/ansible
+    tag: ubuntu-18.04
+    dockerfile: ubuntu-18.04/Dockerfile
+    secrets: [ docker_username, docker_password ]
+    when:
+      event: [ tag ]
 
   build-ubuntu-16-publish:
     group: build

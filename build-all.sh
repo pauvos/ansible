@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ubuntu-18.04 && docker build -t lerentis/ansible:ubuntu-18.04 .
 cd ubuntu-16.04 && docker build -t lerentis/ansible:ubuntu-16.04 .
 cd ../alpine-3 && docker build -t lerentis/ansible:alpine-3 .
 cd ../ubuntu-14.04  && docker build -t lerentis/ansible:ubuntu-14.04 .
