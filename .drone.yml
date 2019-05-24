@@ -1,5 +1,8 @@
 pipeline:
 
+  concurrency:
+    limit: 9
+
   build-ubuntu-18:
     group: build
     image: plugins/docker
