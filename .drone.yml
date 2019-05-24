@@ -91,92 +91,119 @@ pipeline:
       event: [ push, pull_request ]
 
   build-ubuntu-18-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: ubuntu-18.04
     dockerfile: ubuntu-18.04/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-ubuntu-16-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: ubuntu-16.04
     dockerfile: ubuntu-16.04/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-ubuntu-14-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: ubuntu-14.04
     dockerfile: ubuntu-14.04/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-fedora-24-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: fedora-24
     dockerfile: fedora-24/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-alpine-3-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: alpine-3
     dockerfile: alpine-3/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-debian-8-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: debian-8
     dockerfile: debian-8/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-debian-7-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: debian-7
     dockerfile: debian-8/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-centos-7-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: centos-7
     dockerfile: centos-7/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
   build-arch-publish:
-    group: build
+    group: release
     image: plugins/docker
     repo: lerentis/ansible
     tag: arch
     dockerfile: arch/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     when:
       event: [ tag ]
 
