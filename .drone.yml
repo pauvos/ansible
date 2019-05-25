@@ -1,7 +1,5 @@
----
 kind: pipeline
 name: ansible-containers
-debug: true
 
 concurrency:
   limit: 9
@@ -67,7 +65,8 @@ steps:
       - push
       - pull_request
 
-  - image: plugins/docker
+  - name: build-debian-8
+    image: plugins/docker
     settings:
       dockerfile: debian-8/Dockerfile
       dry_run: true
