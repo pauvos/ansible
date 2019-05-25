@@ -1,6 +1,7 @@
 ---
 kind: pipeline
 name: ansible-containers
+debug: true
 
 concurrency:
   limit: 9
