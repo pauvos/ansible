@@ -241,6 +241,7 @@ steps:
 
   - name: notify
     image: appleboy/drone-telegram
+    depends_on: [ build-ubuntu-18, build-ubuntu-16, build-ubuntu-14, build-fedora-24, build-alpine-3, build-debian-8, build-debian-7, build-centos-7, build-arch, build-ubuntu-18-publish, build-ubuntu-16-publish, build-ubuntu-14-publish, build-fedora-24-publish, build-alpine-3-publish, build-debian-8-publish, build-debian-7-publish, build-centos-7-publish, build-arch-publish,   ]
     settings:
       message: "Commit {{ commit.link }} ran with build {{ build.number }} and finished with status {{ build.status }}."
       to: 14852963
