@@ -8,6 +8,7 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
       ansible \
+      git \
     && apt-get clean
 
 CMD ["ansible-playbook", "--help"]
