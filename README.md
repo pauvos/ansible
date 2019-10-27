@@ -13,6 +13,8 @@ Available operating systems:
 * debian-8
 * fedora-24
 * ubuntu-16.04
+* ubuntu-18.04
+* ubuntu-19.04
 * arch
 
 ## run playbooks
