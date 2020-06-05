@@ -23,18 +23,6 @@ steps:
     - push
     - pull_request
 
-- name: build-ubuntu-19
-  image: plugins/docker
-  settings:
-    dockerfile: ubuntu-19.04/Dockerfile
-    dry_run: true
-    repo: lerentis/ansible
-    tag: ubuntu-19.04
-  when:
-    event:
-    - push
-    - pull_request
-
 - name: build-ubuntu-18
   image: plugins/docker
   settings:
@@ -151,20 +139,6 @@ steps:
       from_secret: docker_password
     repo: lerentis/ansible
     tag: ubuntu-18.04
-    username:
-      from_secret: docker_username
-  when:
-    event:
-    - tag
-
-- name: build-ubuntu-19-publish
-  image: plugins/docker
-  settings:
-    dockerfile: ubuntu-19.04/Dockerfile
-    password:
-      from_secret: docker_password
-    repo: lerentis/ansible
-    tag: ubuntu-19.04
     username:
       from_secret: docker_username
   when:
@@ -309,7 +283,6 @@ steps:
     - success
   depends_on:
   - build-ubuntu-20
-  - build-ubuntu-19
   - build-ubuntu-18
   - build-ubuntu-16
   - build-ubuntu-14
@@ -320,7 +293,6 @@ steps:
   - build-centos-7
   - build-arch
   - build-ubuntu-20-publish
-  - build-ubuntu-19-publish
   - build-ubuntu-18-publish
   - build-ubuntu-16-publish
   - build-ubuntu-14-publish
