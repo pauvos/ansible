@@ -11,6 +11,18 @@ concurrency:
 
 steps:
 
+- name: build-ubuntu-20
+  image: plugins/docker
+  settings:
+    dockerfile: ubuntu-20.04/Dockerfile
+    dry_run: true
+    repo: lerentis/ansible
+    tag: ubuntu-20.04
+  when:
+    event:
+    - push
+    - pull_request
+
 - name: build-ubuntu-19
   image: plugins/docker
   settings:
@@ -159,6 +171,20 @@ steps:
     event:
     - tag
 
+- name: build-ubuntu-20-publish
+  image: plugins/docker
+  settings:
+    dockerfile: ubuntu-20.04/Dockerfile
+    password:
+      from_secret: docker_password
+    repo: lerentis/ansible
+    tag: ubuntu-20.04
+    username:
+      from_secret: docker_username
+  when:
+    event:
+    - tag
+
 - name: build-ubuntu-16-publish
   image: plugins/docker
   settings:
@@ -282,6 +308,7 @@ steps:
     - failure
     - success
   depends_on:
+  - build-ubuntu-20
   - build-ubuntu-19
   - build-ubuntu-18
   - build-ubuntu-16
@@ -292,6 +319,7 @@ steps:
   - build-debian-7
   - build-centos-7
   - build-arch
+  - build-ubuntu-20-publish
   - build-ubuntu-19-publish
   - build-ubuntu-18-publish
   - build-ubuntu-16-publish
