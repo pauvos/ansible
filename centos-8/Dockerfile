@@ -1,8 +1,7 @@
 FROM centos:8
 
-RUN yum -y install epel-release \
-  && yum -y install ansible git \
-  && yum clean headers \
-  && yum clean packages
+RUN dnf -y install python3-pip &&\
+    dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm &&\
+    dnf install -y --enablerepo epel-playground ansible
 
 CMD ["ansible-playbook", "--help"]
