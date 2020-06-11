@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get update \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y --no-install-recommends \
       software-properties-common \
       apt-utils \
