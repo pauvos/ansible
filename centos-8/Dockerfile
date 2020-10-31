@@ -6,6 +6,6 @@ RUN dnf -y install python3-pip &&\
     && curl -L https://github.com/aelsabbahy/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss \
     && chmod +rx /usr/local/bin/goss \
     && touch ~/.netrc && chmod og-rw ~/.netrc \
-    pip3 install firewall
+    && pip3 install firewall
 
 CMD ["ansible-playbook", "--help"]
