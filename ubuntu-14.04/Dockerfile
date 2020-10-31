@@ -9,6 +9,9 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
       ansible \
       git \
+      curl \
+    && curl -L https://github.com/aelsabbahy/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss \
+    && chmod +rx /usr/local/bin/goss \
     && apt-get clean
 
 CMD ["ansible-playbook", "--help"]
