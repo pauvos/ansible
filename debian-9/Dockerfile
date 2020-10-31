@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:9
 
 RUN apt-get -q update \
     && apt-get -yq install --no-install-recommends \
@@ -11,11 +11,11 @@ RUN apt-get -q update \
       git \
       apt-utils \
       curl \
+      ansible \
     && curl -L https://github.com/aelsabbahy/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss \
     && chmod +rx /usr/local/bin/goss \
     && apt-get clean \
     && pip3 install --upgrade pip
 
-RUN pip3 install ansible
 
 CMD ["ansible-playbook", "--help"]
