@@ -12,6 +12,7 @@ RUN apt-get -q update \
       apt-utils \
       curl \
       ansible \
+      python \
     && curl -L https://github.com/aelsabbahy/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss \
     && chmod +rx /usr/local/bin/goss \
     && apt-get clean 
